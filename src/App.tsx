@@ -7,7 +7,7 @@ import Modal from './components/Modal';
 import { useState } from 'react'
 
 function App() {
-  let [isOpen, setIsOpen] = useState(true);
+  let [isOpen, setIsOpen] = useState(false);
   return (
     <div className="App">
       <Card/>
