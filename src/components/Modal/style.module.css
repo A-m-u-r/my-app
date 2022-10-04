@@ -1,0 +1,25 @@
+.bg{
+background-color: rgba (1, 1, 1, 0.4);
+position: fixed;
+inset: 0;
+
+}
+.panel{
+    z-index: 5000;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    inset: 0;
+    position: fixed;
+    overflow-y: auto;
+}
+.content{
+
+}   
+.modal{
+    position: relative;
+    z-index: 1500;
+
+}

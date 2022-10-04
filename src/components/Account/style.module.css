@@ -1,0 +1,19 @@
+.account {
+  width: 500px;
+  background-color: brown;
+  margin: 0px auto;
+  position: relative;
+  border-style: solid;
+  border-width: 20;
+  border-color: black;
+  padding: 20px;
+  
+}
+
+.crest {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
