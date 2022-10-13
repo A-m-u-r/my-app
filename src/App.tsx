@@ -5,6 +5,7 @@ import Card from './components/Card';
 import Timer from './components/Timer';
 import Modal from './components/Modal';
 import { useState } from 'react'
+import Week from './components/Week';
 
 function App() {
   let [isOpen, setIsOpen] = useState(false);
@@ -16,6 +17,7 @@ function App() {
 
         <div style={{backgroundColor:'grey'}}>Привет</div>
       </Modal>
+      <Week/>
       <button onClick={()=> setIsOpen(true)}>Click!</button>
     </div>
   );
