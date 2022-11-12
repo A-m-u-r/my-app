@@ -10,10 +10,10 @@ export interface ICity {
   name: string;
   coord: { lat: number; lon: number };
   country: string;
-  population: number;
-  timezone: number;
-  sunrise: number;
-  sunset: number;
+  population?: number;
+  timezone?: number;
+  sunrise?: number;
+  sunset?: number;
 }
 export interface IPeriodWeather {
   dt: number;
@@ -21,7 +21,7 @@ export interface IPeriodWeather {
   weather: IWeather[];
   dt_txt: any;
   wind: IWind;
-  // это костыль, озночает чтое сть множество свойств с любым типом
+  // это костыль, озночает что есть множество свойств с любым типом
   [field: string]: any;
 }
 export interface IWind {
@@ -33,7 +33,7 @@ export interface IWeather {
   description: string;
   main?: string;
   id: number;
-  icon: string;
+  icon?: string;
 }
 export interface IMain {
   temp: number;
