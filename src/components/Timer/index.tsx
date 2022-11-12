@@ -6,15 +6,9 @@ const Timer = () => {
   // time - переменная Settime- фунцкия которая меняет переменную
   const [time, setTime] = useState(new Date());
   setInterval(() => setTime(new Date()), 1000);
-  let tm: string = time.toLocaleString();
-  let tme: string = "";
-  for (let a of tm) {
-    if (a == ",") {
-      continue;
-    }
-    else tme += a
-  };
-  return <div className={styles.timer}> {tme}</div>;
+  let localeTime: string = time.toLocaleString();
+  
+  return <div className={styles.timer}> {localeTime.replace(",", "")}</div>;
 };
 
 export default Timer;

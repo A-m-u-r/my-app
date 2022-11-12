@@ -67,7 +67,7 @@ const Week = () => {
     console.log(currentDate);
     */
 
- //useEffect(fetchWeather, []);
+  //useEffect(fetchWeather, []);
   return (
     <div>
       {/* <ul className={styles.week}>
@@ -113,10 +113,8 @@ const Week = () => {
           </Tab.Panel> */}
           <Tab.Panel>
             <ul className={styles.week}>
-              {" "}
               {dayWeathers[keyDay[1]].map((dayWeather: IPeriodWeather): any => (
                 <li className={styles.weekBlock}>
-                  {" "}
                   <Day periodWeathers={dayWeather} />
                 </li>
               ))}
@@ -124,10 +122,8 @@ const Week = () => {
           </Tab.Panel>
           <Tab.Panel>
             <ul className={styles.week}>
-              {" "}
               {dayWeathers[keyDay[2]].map((dayWeather: IPeriodWeather): any => (
                 <li className={styles.weekBlock}>
-                  {" "}
                   <Day periodWeathers={dayWeather} />
                 </li>
               ))}
@@ -135,10 +131,8 @@ const Week = () => {
           </Tab.Panel>
           <Tab.Panel>
             <ul className={styles.week}>
-              {" "}
               {dayWeathers[keyDay[3]].map((dayWeather: IPeriodWeather): any => (
                 <li className={styles.weekBlock}>
-                  {" "}
                   <Day periodWeathers={dayWeather} />
                 </li>
               ))}
@@ -146,10 +140,8 @@ const Week = () => {
           </Tab.Panel>
           <Tab.Panel>
             <ul className={styles.week}>
-              {" "}
               {dayWeathers[keyDay[4]].map((dayWeather: IPeriodWeather): any => (
                 <li className={styles.weekBlock}>
-                  {" "}
                   <Day periodWeathers={dayWeather} />
                 </li>
               ))}

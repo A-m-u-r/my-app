@@ -5,7 +5,9 @@ import styles from "./style.module.css"
 interface IDayProps {
   periodWeathers: IPeriodWeather;
 }
-// необходимо заготовить дата  темп погода ветер
+const upperFirst = (text:string): string => {
+  return text.slice(0, 1).toUpperCase() + text.slice(1)
+}
 export const Day: React.FC<IDayProps> = (props) => {
   let noDayTime: string = props.periodWeathers.dt_txt
   let noDayTime2 = noDayTime.slice(11) 
@@ -13,18 +15,13 @@ export const Day: React.FC<IDayProps> = (props) => {
 
   let noTemp = props.periodWeathers.main.temp
   let noTemp2 = Math.round(noTemp)
-  
-  let description = props.periodWeathers.weather[0].description[1].toUpperCase()
- 
-  
-
 
   return (
     <div>
       <div className={styles.temp} >{noDayTime3}</div>
       <div className={styles.temp}> {noTemp2} ℃</div>
       <div>Скорость ветра {props.periodWeathers.wind.speed} м/с</div>
-      <div>{props.periodWeathers.weather[0].description[1].toUpperCase()}</div>
+      <div className={styles.temp}>{upperFirst(props.periodWeathers.weather[0].description)}</div>
     </div>
   );
   // <div> {JSON.stringify(props, null, 2)}</div>;
