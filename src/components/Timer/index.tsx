@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import { SearchTowns } from "../Search";
 import styles from "./style.module.css";
 
 const Timer = () => {
@@ -8,7 +9,8 @@ const Timer = () => {
   setInterval(() => setTime(new Date()), 1000);
   let localeTime: string = time.toLocaleString();
   
-  return <div className={styles.timer}> {localeTime.replace(",", "")}</div>;
+  return <> <div className={styles.timer}> {localeTime.replace(",", "")}</div></>
+     
 };
-
+  
 export default Timer;
