@@ -1,7 +1,7 @@
 import React from "react";
 import { visitNode } from "typescript";
 import styles from "./../Account/style.module.css";
-import crest from "./../../img/crest.png"
+import crest from "./../../IMGG/crest.png"
 import Modal from "../Modal";
 
 const Account = () => {

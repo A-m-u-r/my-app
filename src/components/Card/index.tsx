@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./style.module.css";
 import Timer from "./../Timer";
+import { SearchTowns } from "../Search";
 
 const Card: React.FC = () => {
   return (
     <div className={styles.card}>
+      <h1 className={styles.h1}>weather.net</h1>
       <Timer />
-      <h1 className={styles.h1} >weather.net</h1>
+      
     </div>
   );
 };

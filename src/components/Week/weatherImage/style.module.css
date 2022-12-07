@@ -1,0 +1,20 @@
+.cloud {
+    height: 50px;
+    width: 50px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+.wind {
+    height: 30px;
+    width: 30px;
+}
+.pareCloud {
+    height: 50px;
+    width: 60px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
