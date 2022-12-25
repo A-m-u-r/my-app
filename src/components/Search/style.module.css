@@ -1,6 +1,24 @@
 input, select {
-    width: 300px;
+    width: 200px;
     margin: 10px auto;
     display: block;
+    height: 100%;
+    
+}
+.input{
+    display: flex;
+    padding-right: 30px;
+    flex-direction: column;
+    justify-content: center;
+    
+}
+.options{
+    color: black;
+    background-color: aliceblue;
+    border-style: solid;
+    border-radius: 2vh;
+    border-color: #26282c;
+    position: absolute;
+    z-index: 50
     
 }

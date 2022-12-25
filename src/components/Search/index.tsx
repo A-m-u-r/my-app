@@ -2,6 +2,7 @@ import { TOWNS } from "./towns";
 import React, { useMemo } from "react";
 import { useState } from "react";
 import { Combobox } from "@headlessui/react";
+import styles from "./style.module.css"
 
 export interface ISearchTownProps {
   setTown: (townName: string) => void;
@@ -19,10 +20,13 @@ export const SearchTowns: React.FC<ISearchTownProps> = (props) => {
   );
   return (
     <Combobox value={props.town} onChange={props.setTown}>
+      <div className={styles.input}>
       <Combobox.Input
         value={query}
         onChange={(event) => setQuery(event.target.value)}
       />
+      </div>
+      <div className={styles.options}>
       <Combobox.Options>
         {filteredTowns.map(([ru_name, en_name]) => (
           <Combobox.Option
@@ -36,6 +40,7 @@ export const SearchTowns: React.FC<ISearchTownProps> = (props) => {
           </Combobox.Option>
         ))}
       </Combobox.Options>
+      </div>
     </Combobox>
   );
 };

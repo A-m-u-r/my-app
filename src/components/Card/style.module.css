@@ -15,3 +15,11 @@
   bottom: -5px;
   left: 20px; */
 }
+/* .searchTowns {
+  display: flex;
+  align-self: flex-end;
+} */
+.searchAndTimer{
+  display: flex;
+  flex-direction: row;
+}

@@ -10,54 +10,19 @@ import { ru } from "date-fns/locale";
 import { addDays, nextDay } from "date-fns/esm";
 import { AddDay } from "./AddDay";
 import { WeatherImage } from "./weatherImage";
-
-const appid = "1158870e77e030be2c0e3b069b4fff55";
-const units = "metric";
-const lang = "ru";
-const apiUrl = "http://api.openweathermap.org/data/2.5/forecast";
-const getUrl = (townName: string) =>
-  `${apiUrl}?appid=${appid}&units=${units}&q=${townName}&lang=${lang}`;
-
-//const url = `https://api.openweathermap.org/data/2.5/forecast?appid=1158870e77e030be2c0e3b069b4fff55&units=metric&q=lyantor&lang=ru`;//
+//import { Today } from "../Today";
 
 // функция в которую мы будем передавать пропс dateString(), и будем получать на выходе "2022-10-12"
 
-const getDate = (dateString: string): string => {
-  const date = new Date(dateString);
-  return [date.getFullYear(), date.getMonth(), date.getDate()].join("-");
-};
 
-let arrDate: string[] = [];
-const Week = () => {
-  const [town, setTown] = useState<string>("Лянтор");
-  const [weather, setWeather] = useState<IWeatherList>(weatherData);
-  const fetchWeather = () => {
-    fetch(getUrl(town))
-      .then((response) => response.json())
-      // обробатываем результат и записываем его при помощи "data" в weather !-- (usestate)
-      .then((data) => setWeather(data))
-      .catch((reason) => console.log(reason));
-  };
+interface IWeek {
+  setTown: (townName: string) => void;
+  town: string;
+  dayWeathers:  Record<string, IPeriodWeather[]>; 
+}
 
- 
-  
-  useEffect(fetchWeather, [town]);
-
-  if (!weather.list) {
-    return <></>;
-  }
-  // dayWeather - отсортированный по дате список промежутков погоды на день
-  let dayWeathers: Record<string, IPeriodWeather[]> = {};
-  weather.list.forEach((periodWeather) => {
-    let currentDate = getDate(periodWeather.dt_txt);
-    arrDate.push(currentDate);
-    //console.log(periodWeather.dt_txt)
-    if (!dayWeathers[currentDate]) {
-      dayWeathers[currentDate] = [];
-    }
-    // currentDate является ключом к periodWeather
-    dayWeathers[currentDate] = [...dayWeathers[currentDate], periodWeather];
-  });
+const Week:React.FC<IWeek> = (props) => {
+  const{dayWeathers} = props;
 
   let keyDay = Object.keys(dayWeathers);
   let valDay = Object.values(dayWeathers);
@@ -67,7 +32,6 @@ const Week = () => {
   //dayWeather[1][4].weather.description
   return (
     <>
-      <SearchTowns setTown={setTown} town={town} />
       <div className={styles.tableWeather}>
         {/* <ul className={styles.week}>
         <pre>{JSON.stringify(dayWeathers, null, 2)}</pre> 
