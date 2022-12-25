@@ -21,6 +21,7 @@ const getUrl = (townName: string) =>
 //const url = `https://api.openweathermap.org/data/2.5/forecast?appid=1158870e77e030be2c0e3b069b4fff55&units=metric&q=lyantor&lang=ru`;//
 
 // функция в которую мы будем передавать пропс dateString(), и будем получать на выходе "2022-10-12"
+
 const getDate = (dateString: string): string => {
   const date = new Date(dateString);
   return [date.getFullYear(), date.getMonth(), date.getDate()].join("-");
@@ -38,6 +39,8 @@ const Week = () => {
       .catch((reason) => console.log(reason));
   };
 
+ 
+  
   useEffect(fetchWeather, [town]);
 
   if (!weather.list) {
@@ -177,3 +180,4 @@ const Week = () => {
   );
 };
 export default Week;
+

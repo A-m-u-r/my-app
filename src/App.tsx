@@ -6,9 +6,23 @@ import Timer from "./components/Timer";
 import Modal from "./components/Modal";
 import { useState } from "react";
 import Week from "./components/Week";
+import Child from "./components";
 
 function App() {
   let [isOpen, setIsOpen] = useState(false);
+
+  const Parent = () => {
+    const [value, setValue] = useState('');
+    const handleChange = (arg:any)=> {
+      setValue(arg);
+    };
+    
+    return (
+      <Child handleChange={handleChange} />
+      
+    );
+  };
+
   return (
     <div className="App">
       <Card />
