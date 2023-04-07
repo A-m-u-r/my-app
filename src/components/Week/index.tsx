@@ -10,10 +10,6 @@ import { ru } from "date-fns/locale";
 import { addDays, nextDay } from "date-fns/esm";
 import { AddDay } from "./AddDay";
 import { WeatherImage } from "./weatherImage";
-//import { Today } from "../Today";
-
-// функция в которую мы будем передавать пропс dateString(), и будем получать на выходе "2022-10-12"
-
 
 interface IWeek {
   setTown: (townName: string) => void;
@@ -28,27 +24,10 @@ const Week:React.FC<IWeek> = (props) => {
   let valDay = Object.values(dayWeathers);
   let dayOfWeek = keyDay.map((day) => day.slice(5));
 
-  console.log(dayWeathers[keyDay[1]][4].weather[0].description);
-  //dayWeather[1][4].weather.description
+  //console.log(dayWeathers[keyDay[1]][4].weather[0].description);
   return (
     <>
       <div className={styles.tableWeather}>
-        {/* <ul className={styles.week}>
-        <pre>{JSON.stringify(dayWeathers, null, 2)}</pre> 
-        {weather.list.map((periodWeather: IPeriodWeather) => (
-          <li key={periodWeather.dt_txt} className={styles.weekBlock}>
-            <div>Дата {periodWeather.dt_txt}</div>
-            <div>Температура {periodWeather.main.temp}</div>
-            <div className={styles.clouds}>
-              {periodWeather.weather[0].description}
-            </div>
-            <div className={styles.wind}>
-              Скорость ветра {periodWeather.wind.speed} м/с
-            </div>
-          </li>
-        ))}
-      </ul> */}
-
         <Tab.Group as="div">
           <Tab.List className={styles.list}>
             <Tab className={styles.btn}>

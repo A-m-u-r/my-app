@@ -14,20 +14,37 @@ const upperFirst = (text: string): string => {
 
 export const Today:React.FC<IToday> = (props) => {
     const {dayWeathers} = props;
+    const {todayWeather} = props; 
    
-  
     let keyDay = Object.keys(dayWeathers);
     let valDay = Object.values(dayWeathers);
     let dayOfWeek = keyDay.map((day) => day.slice(5));
 
-    return <div className = {styles.today}>  {dayWeathers[keyDay[0]].map(
+return <div className={styles.overToday}>
+    <div className = {styles.today}> 
+    <div className={styles.nowWeather}>  
+    <div className={styles.now}>Сейчас</div>
+    <div className={styles.nowDescription}>{todayWeather.weather[0].description} </div>
+    <div className={styles.imgTemp}>
+        <WeatherImage image={todayWeather.weather[0].description} />
+        <div className={styles.nowTemp}>{Math.round(todayWeather.main.temp)} ℃</div>
+    </div>
+    <div className={styles.wind}>
+        <img src={wind} className={styles.windImg}></img> 
+        {todayWeather.wind.speed} м/с
+    </div>
+    {/* <div>Днём {Math.round(valDay[1][3].main.temp)} ℃</div>
+    <div>Ночью {Math.round(valDay[1][6].main.temp)} ℃</div>  */}
+</div>
+
+     {dayWeathers[keyDay[0]].map(
         (dayWeather: IPeriodWeather): any => (
             <div className={styles.periodWeather}>
             <div key={dayWeather.dt_txt}>
             <div className={styles.temp}>{dayWeather.dt_txt.slice(11).slice(0,5)}</div>
             <WeatherImage image={dayWeather.weather[0].description} />
             <div className={styles.temp}> {Math.round(dayWeather.main.temp)} ℃</div>
-            <div className={styles.windd}>
+            <div className={styles.wind}>
               <img src={wind} className={styles.windImg}></img> 
               {dayWeather.wind.speed} м/с
             </div>
@@ -38,6 +55,7 @@ export const Today:React.FC<IToday> = (props) => {
             </div>
         )
       )}</div>
+</div>
 }
 
       

@@ -16,14 +16,14 @@ export const Day: React.FC<IDayProps> = (props) => {
   let noDayTime2 = noDayTime.slice(11);
   let noDayTime3 = noDayTime2.slice(0, 5);
 
-  let noTemp = props.periodWeathers.main.temp;
-  let noTemp2 = Math.round(noTemp);
+  let Temperature = props.periodWeathers.main.temp;
+  let Temperature2 = Math.round(Temperature);
 
   return (
     <div>
       <div className={styles.temp}>{noDayTime3}</div>
       <WeatherImage image={props.periodWeathers.weather[0].description} />
-      <div className={styles.temp}> {noTemp2} ℃</div>
+      <div className={styles.temp}> {Temperature2} ℃</div>
       <div className={styles.windd}>
         <img src={wind} className={styles.windImg}></img> 
         {props.periodWeathers.wind.speed} м/с
